@@ -47,6 +47,8 @@ async function loop() {
 
 document.getElementById("camera");
 console.log(document.getElementById("camera"));
+var theText = document.getElementById("text");
+console.log(theText);
 
 // run the webcam image through the image model
 async function predict() {
@@ -60,14 +62,23 @@ async function predict() {
         if(prediction[0].probability.toFixed(2)>.6){
             // console.clear();
             console.log("Class 1");
+            var theText = document.getElementById("text");
+            theText.setAttribute('color', '#FF461E');
+            // console.log(theText);
         }
         if(prediction[1].probability.toFixed(2)>.6){
             // console.clear();
             console.log("Class 2");
+            var theText = document.getElementById("text");
+            theText.setAttribute('color', '#15FF5C');
+            // console.log(theText);
         }
         if(prediction[2].probability.toFixed(2)>.6){
             // console.clear();
             console.log("Class 3");
+            var theText = document.getElementById("text");
+            theText.setAttribute('color', '#1595FF');
+            // console.log(theText);
         }
     }
 }
