@@ -78,7 +78,7 @@ async function predict() {
             // console.clear();
             console.log("Class 2: Green!");
             var theText = document.getElementById("text");
-            theText.setAttribute('color', '#15FF5C');
+            theText.setAttribute('color', '#90C73E');
             // theText.setAttribute("value", "What the fuck is up kyle");
             // console.log(theText);
         }
@@ -86,7 +86,7 @@ async function predict() {
             // console.clear();
             console.log("Class 3: Orange!");
             var theText = document.getElementById("text");
-            theText.setAttribute('color', '#1595FF');
+            theText.setAttribute('color', '#F1AF4D');
             // theText.setAttribute("value", "What the fuck is up kyle");
             // console.log(theText);
         }
@@ -94,7 +94,7 @@ async function predict() {
             // console.clear();
             console.log("Class 3: Redish!");
             var theText = document.getElementById("text");
-            theText.setAttribute('color', '#1595FF');
+            theText.setAttribute('color', '#EE4D9B');
             // theText.setAttribute("value", "What the fuck is up kyle");
             // console.log(theText);
         }
