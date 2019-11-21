@@ -70,7 +70,7 @@ async function predict() {
             // console.clear();
             console.log("Class 1: Blue!");
             var theText = document.getElementById("text");
-            theText.setAttribute('color', '#FF461E');
+            theText.setAttribute('color', '#4A67B0');
             // theText.setAttribute("value", "What the fuck is up kyle");
             // console.log(theText);
         }
