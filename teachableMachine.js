@@ -66,7 +66,7 @@ async function predict() {
             prediction[i].className + ": " + prediction[i].probability.toFixed(2);
         labelContainer.childNodes[i].innerHTML = classPrediction;
         // if (prediction[1].probability.toFixed(2);)
-        if(prediction[0].probability.toFixed(2)>.6){
+        if(prediction[0].probability.toFixed(2)>.8){
             // console.clear();
             console.log("Class 1: Blue!");
             var theText = document.getElementById("text");
@@ -74,7 +74,7 @@ async function predict() {
             // theText.setAttribute("value", "What the fuck is up kyle");
             // console.log(theText);
         }
-        if(prediction[1].probability.toFixed(2)>.6){
+        if(prediction[1].probability.toFixed(2)>.8){
             // console.clear();
             console.log("Class 2: Green!");
             var theText = document.getElementById("text");
@@ -82,7 +82,7 @@ async function predict() {
             // theText.setAttribute("value", "What the fuck is up kyle");
             // console.log(theText);
         }
-        if(prediction[2].probability.toFixed(2)>.6){
+        if(prediction[2].probability.toFixed(2)>.8){
             // console.clear();
             console.log("Class 3: Orange!");
             var theText = document.getElementById("text");
@@ -90,7 +90,7 @@ async function predict() {
             // theText.setAttribute("value", "What the fuck is up kyle");
             // console.log(theText);
         }
-        if(prediction[3].probability.toFixed(2)>.6){
+        if(prediction[3].probability.toFixed(2)>.8){
             // console.clear();
             console.log("Class 3: Redish!");
             var theText = document.getElementById("text");
