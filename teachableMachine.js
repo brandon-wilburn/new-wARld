@@ -50,6 +50,9 @@ console.log(document.getElementById("camera"));
 var theText = document.getElementById("text");
 console.log(theText);
 
+var getContainer = document.getElementsByClassName("container")[0];
+console.log(getContainer);
+
 // run the webcam image through the image model
 async function predict() {
     // predict can take in an image, video or canvas html element
@@ -64,6 +67,7 @@ async function predict() {
             console.log("Class 1");
             var theText = document.getElementById("text");
             theText.setAttribute('color', '#FF461E');
+            // theText.setAttribute("value", "What the fuck is up kyle");
             // console.log(theText);
         }
         if(prediction[1].probability.toFixed(2)>.6){
@@ -71,6 +75,7 @@ async function predict() {
             console.log("Class 2");
             var theText = document.getElementById("text");
             theText.setAttribute('color', '#15FF5C');
+            // theText.setAttribute("value", "What the fuck is up kyle");
             // console.log(theText);
         }
         if(prediction[2].probability.toFixed(2)>.6){
@@ -78,6 +83,7 @@ async function predict() {
             console.log("Class 3");
             var theText = document.getElementById("text");
             theText.setAttribute('color', '#1595FF');
+            // theText.setAttribute("value", "What the fuck is up kyle");
             // console.log(theText);
         }
     }
