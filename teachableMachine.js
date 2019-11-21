@@ -5,6 +5,9 @@
 console.log("JSLINKED");
 
 // const URL = "https://teachablemachine.withgoogle.com/models/g1e0BEI3/";
+// Initial colors
+// const URL = "https://teachablemachine.withgoogle.com/models/n04pzHan/";
+// Model 2.0
 const URL = "https://teachablemachine.withgoogle.com/models/n04pzHan/";
 
 let model, webcam, labelContainer, maxPredictions;
@@ -65,7 +68,7 @@ async function predict() {
         // if (prediction[1].probability.toFixed(2);)
         if(prediction[0].probability.toFixed(2)>.6){
             // console.clear();
-            console.log("Class 1");
+            console.log("Class 1: Blue!");
             var theText = document.getElementById("text");
             theText.setAttribute('color', '#FF461E');
             // theText.setAttribute("value", "What the fuck is up kyle");
@@ -73,7 +76,7 @@ async function predict() {
         }
         if(prediction[1].probability.toFixed(2)>.6){
             // console.clear();
-            console.log("Class 2");
+            console.log("Class 2: Green!");
             var theText = document.getElementById("text");
             theText.setAttribute('color', '#15FF5C');
             // theText.setAttribute("value", "What the fuck is up kyle");
@@ -81,7 +84,15 @@ async function predict() {
         }
         if(prediction[2].probability.toFixed(2)>.6){
             // console.clear();
-            console.log("Class 3");
+            console.log("Class 3: Orange!");
+            var theText = document.getElementById("text");
+            theText.setAttribute('color', '#1595FF');
+            // theText.setAttribute("value", "What the fuck is up kyle");
+            // console.log(theText);
+        }
+        if(prediction[3].probability.toFixed(2)>.6){
+            // console.clear();
+            console.log("Class 3: Redish!");
             var theText = document.getElementById("text");
             theText.setAttribute('color', '#1595FF');
             // theText.setAttribute("value", "What the fuck is up kyle");
