@@ -4,7 +4,8 @@
 // the link to your model provided by Teachable Machine export panel
 console.log("JSLINKED");
 
-const URL = "https://teachablemachine.withgoogle.com/models/g1e0BEI3/";
+// const URL = "https://teachablemachine.withgoogle.com/models/g1e0BEI3/";
+const URL = "https://teachablemachine.withgoogle.com/models/n04pzHan/";
 
 let model, webcam, labelContainer, maxPredictions;
 document.addEventListener("DOMContentLoaded", init, false);
