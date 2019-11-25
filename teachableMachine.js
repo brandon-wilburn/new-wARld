@@ -8,7 +8,9 @@ console.log("JSLINKED");
 // Initial colors
 // const URL = "https://teachablemachine.withgoogle.com/models/n04pzHan/";
 // Model 2.0
-const URL = "https://teachablemachine.withgoogle.com/models/n04pzHan/";
+// const URL = "https://teachablemachine.withgoogle.com/models/n04pzHan/";
+// Model 3.0
+const URL = "https://teachablemachine.withgoogle.com/models/_1TtmuVG/";
 
 let model, webcam, labelContainer, maxPredictions;
 document.addEventListener("DOMContentLoaded", init, false);
@@ -68,7 +70,7 @@ async function predict() {
         // if (prediction[1].probability.toFixed(2);)
         if(prediction[0].probability.toFixed(2)>.8){
             // console.clear();
-            console.log("Class 1: Blue!");
+            console.log("Class 1: Green!");
             var theText = document.getElementById("text");
             theText.setAttribute('color', '#4A67B0');
             // theText.setAttribute("value", "What the fuck is up kyle");
@@ -76,7 +78,7 @@ async function predict() {
         }
         if(prediction[1].probability.toFixed(2)>.8){
             // console.clear();
-            console.log("Class 2: Green!");
+            console.log("Class 2: Blue!");
             var theText = document.getElementById("text");
             theText.setAttribute('color', '#90C73E');
             // theText.setAttribute("value", "What the fuck is up kyle");
@@ -84,19 +86,19 @@ async function predict() {
         }
         if(prediction[2].probability.toFixed(2)>.8){
             // console.clear();
-            console.log("Class 3: Orange!");
+            console.log("Class 3: Pink!");
             var theText = document.getElementById("text");
             theText.setAttribute('color', '#F1AF4D');
             // theText.setAttribute("value", "What the fuck is up kyle");
             // console.log(theText);
         }
-        if(prediction[3].probability.toFixed(2)>.8){
-            // console.clear();
-            console.log("Class 3: Redish!");
-            var theText = document.getElementById("text");
-            theText.setAttribute('color', '#EE4D9B');
-            // theText.setAttribute("value", "What the fuck is up kyle");
-            // console.log(theText);
-        }
+        // if(prediction[3].probability.toFixed(2)>.8){
+        //     // console.clear();
+        //     console.log("Class 3: Redish!");
+        //     var theText = document.getElementById("text");
+        //     theText.setAttribute('color', '#EE4D9B');
+        //     // theText.setAttribute("value", "What the fuck is up kyle");
+        //     // console.log(theText);
+        // }
     }
 }
