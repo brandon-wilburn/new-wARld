@@ -5,32 +5,37 @@
 	    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
-        <script src="https://raw.githack.com/jeromeetienne/AR.js/1.7.5/aframe/build/aframe-ar.js"></script>
+        <script src="aframe-ar.js"></script>
         <script type="text/javascript" src="webcam.min.js"></script>
-        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link href="mainStyles.css" type="text/css" rel="stylesheet">
+        <!-- <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"> -->
         <title></title>
     </head>
     <body>
             <!-- <div>Teachable Machine Image Model</div>
             <button type="button" onclick="init()">Start</button>
             <div id="webcam-container"></div> -->
-            <a-scene embedded arjs>
-                <a-marker preset="hiro">
-                        <a-box id="box" color="white" depth="2" height="2"></a-box>
-                </a-marker>
-                <a-entity id="camera" camera></a-entity>
-            </a-scene>
-        
+                <!-- <button id="ot">ENTER THE CHAMELEON</button> -->
+                <a-scene embedded arjs>
+                    <a-marker preset="hiro">
+                            <a-box id="box" color="white" depth="2" height="2"></a-box>
+                    </a-marker>
+                    <a-entity id="camera" camera></a-entity>
+                </a-scene>
 
         <div id="label-container">
             <script>
-                Webcam.set({
-                    width: 320,
-                    height: 240,
-                    image_format: 'jpeg',
-                    jpeg_quality: 90
-                });
-                Webcam.attach( 'label-container' );
+                // Webcam.set({
+                //     width: 320,
+                //     height: 240,
+                //     image_format: 'jpeg',
+                //     jpeg_quality: 90,
+                //     display: 'none'
+                // });
+                // Webcam.attach( 'label-container' );
+                // var vidFeed = document.getElementById('label-container').getElementsByTagName('video')[0];
+                // vidFeed.setAttribute('display', 'none');
+                // console.log(vidFeed);
             </script>
         </div>
         <script src="teachableMachine.js" type="text/javascript"></script>

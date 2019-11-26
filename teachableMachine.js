@@ -12,9 +12,10 @@ console.log("JSLINKED");
 // Model 3.0
 const URL = "https://teachablemachine.withgoogle.com/models/_1TtmuVG/";
 
-let model, webcam, labelContainer, maxPredictions;
-document.addEventListener("DOMContentLoaded", init, false);
-
+let model, webcam, labelContainer, maxPredictions, canvas;
+// document.getElementsByTagName('a-scene')[0].addEventListener("DOMContentLoaded", init, false);
+setTimeout(init, 7000);
+// init();
 // Load the image model and setup the webcam
 async function init() {
     const modelURL = URL + "model.json";
@@ -35,13 +36,23 @@ async function init() {
     // await webcam.setup(); // request access to the webcam
     // await webcam.play();
     // window.requestAnimationFrame(loop);
+
+    // Webcam.set({
+    //     width: 320,
+    //     height: 240,
+    //     image_format: 'jpeg',
+    //     jpeg_quality: 90,
+    //     display: 'none'
+    // });
+    // Webcam.attach('label-container');
+    // console.log(vidFeed);
+    canvas = document.getElementsByClassName('a-canvas')[0];
     window.requestAnimationFrame(loop);
 
     // append elements to the DOM
 
     // Get a-frame canvas
-    var aFrameCanvas = document.getElementsByClassName('a-canvas');
-    console.log(aFrameCanvas);
+    console.log(canvas);
     
     // document.getElementById("webcam-container").appendChild(webcam.canvas);
     labelContainer = document.getElementById("label-container");
@@ -51,9 +62,8 @@ async function init() {
 }
 
 async function loop() {
-    // webcam.update(); // update the webcam frame
+    canvas = document.getElementsByClassName('a-canvas')[0];
     await predict();
-    window.requestAnimationFrame(loop);
 }
 
 // document.getElementById("camera");
@@ -65,19 +75,20 @@ var getContainer = document.getElementsByClassName("container")[0];
 console.log(getContainer);
 
 var vidFeed = document.getElementById('label-container').getElementsByTagName('video')[0];
-vidFeed.setAttribute('display', 'none');
-console.log(vidFeed);
-
+var sourceParameters = {
+    // to read from the webcam
+    sourceType: 'webcam',
+}
 // run the webcam image through the image model
 async function predict() {
     // predict can take in an image, video or canvas html element
-    const prediction = await model.predict(vidFeed);
+    const prediction = await model.predict(canvas);
     for (let i = 0; i < maxPredictions; i++) {
         const classPrediction =
             prediction[i].className + ": " + prediction[i].probability.toFixed(2);
         labelContainer.childNodes[i].innerHTML = classPrediction;
         // if (prediction[1].probability.toFixed(2);)
-        if(prediction[0].probability.toFixed(2)>.8){
+        if(prediction[0].probability.toFixed(2)>.3){
             // console.clear();
             console.log("Class 1: Green!");
             var theText = document.getElementById("box");
@@ -85,7 +96,7 @@ async function predict() {
             // theText.setAttribute("value", "What the fuck is up kyle");
             // console.log(theText);
         }
-        if(prediction[1].probability.toFixed(2)>.8){
+        if(prediction[1].probability.toFixed(2)>.3){
             // console.clear();
             console.log("Class 2: Blue!");
             var theText = document.getElementById("box");
@@ -93,7 +104,7 @@ async function predict() {
             // theText.setAttribute("value", "What the fuck is up kyle");
             // console.log(theText);
         }
-        if(prediction[2].probability.toFixed(2)>.8){
+        if(prediction[2].probability.toFixed(2)>.3){
             // console.clear();
             console.log("Class 3: Pink!");
             var theText = document.getElementById("box");
@@ -110,4 +121,5 @@ async function predict() {
         //     // console.log(theText);
         // }
     }
+    window.requestAnimationFrame(loop);
 }
