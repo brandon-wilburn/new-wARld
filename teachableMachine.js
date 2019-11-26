@@ -30,13 +30,18 @@ async function init() {
     console.log("Number of classes= "+maxPredictions);
 
     // Convenience function to setup a webcam
-    const flip = true; // whether to flip the webcam
-    webcam = new tmImage.Webcam(600, 600, flip); // width, height, flip
-    await webcam.setup(); // request access to the webcam
-    await webcam.play();
+    // const flip = true; // whether to flip the webcam
+    // webcam = new tmImage.Webcam(600, 600, flip); // width, height, flip
+    // await webcam.setup(); // request access to the webcam
+    // await webcam.play();
+    // window.requestAnimationFrame(loop);
     window.requestAnimationFrame(loop);
 
     // append elements to the DOM
+
+    // Get a-frame canvas
+    var aFrameCanvas = document.getElementsByClassName('a-canvas');
+    console.log(aFrameCanvas);
     
     // document.getElementById("webcam-container").appendChild(webcam.canvas);
     labelContainer = document.getElementById("label-container");
@@ -46,7 +51,7 @@ async function init() {
 }
 
 async function loop() {
-    webcam.update(); // update the webcam frame
+    // webcam.update(); // update the webcam frame
     await predict();
     window.requestAnimationFrame(loop);
 }
@@ -59,10 +64,14 @@ console.log(theText);
 var getContainer = document.getElementsByClassName("container")[0];
 console.log(getContainer);
 
+var vidFeed = document.getElementById('label-container').getElementsByTagName('video')[0];
+vidFeed.setAttribute('display', 'none');
+console.log(vidFeed);
+
 // run the webcam image through the image model
 async function predict() {
     // predict can take in an image, video or canvas html element
-    const prediction = await model.predict(webcam.canvas);
+    const prediction = await model.predict(vidFeed);
     for (let i = 0; i < maxPredictions; i++) {
         const classPrediction =
             prediction[i].className + ": " + prediction[i].probability.toFixed(2);
