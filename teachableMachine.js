@@ -51,9 +51,9 @@ async function loop() {
     window.requestAnimationFrame(loop);
 }
 
-document.getElementById("camera");
-console.log(document.getElementById("camera"));
-var theText = document.getElementById("text");
+// document.getElementById("camera");
+// console.log(document.getElementById("camera"));
+var theText = document.getElementById("box");
 console.log(theText);
 
 var getContainer = document.getElementsByClassName("container")[0];
@@ -71,24 +71,24 @@ async function predict() {
         if(prediction[0].probability.toFixed(2)>.8){
             // console.clear();
             console.log("Class 1: Green!");
-            var theText = document.getElementById("text");
-            theText.setAttribute('color', '#4A67B0');
+            var theText = document.getElementById("box");
+            theText.setAttribute('color', '#7DC242');
             // theText.setAttribute("value", "What the fuck is up kyle");
             // console.log(theText);
         }
         if(prediction[1].probability.toFixed(2)>.8){
             // console.clear();
             console.log("Class 2: Blue!");
-            var theText = document.getElementById("text");
-            theText.setAttribute('color', '#90C73E');
+            var theText = document.getElementById("box");
+            theText.setAttribute('color', '#5E87C5');
             // theText.setAttribute("value", "What the fuck is up kyle");
             // console.log(theText);
         }
         if(prediction[2].probability.toFixed(2)>.8){
             // console.clear();
             console.log("Class 3: Pink!");
-            var theText = document.getElementById("text");
-            theText.setAttribute('color', '#F1AF4D');
+            var theText = document.getElementById("box");
+            theText.setAttribute('color', '#EE2B67');
             // theText.setAttribute("value", "What the fuck is up kyle");
             // console.log(theText);
         }

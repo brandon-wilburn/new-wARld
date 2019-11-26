@@ -14,13 +14,14 @@
             <div id="webcam-container"></div> -->
             <a-scene embedded arjs>
                 <a-marker preset="hiro">
-                        <a-text id="text" value="Chameleon." rotation="-90 0 0"></a-text>
+                        <!-- <a-text id="text" value="Chameleon." rotation="-90 0 0"></a-text> -->
+                        <a-box id="box" color="white" depth="2" height="2"></a-box>
                 </a-marker>
                 <!-- <a-marker type="pattern" patternUrl="pattern-TempMarker-01.patt">
                     <a-text id="text" value="Chameleon." rotation="0 -45 0"></a-text>
                 </a-marker> -->
 
-                <a-entity id="camera" camera></a-entity>
+                <!-- <a-entity id="camera" camera></a-entity> -->
             </a-scene>
         <div id="label-container"></div>
         <script src="teachableMachine.js" type="text/javascript"></script>
