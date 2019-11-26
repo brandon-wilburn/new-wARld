@@ -14,7 +14,7 @@ const URL = "https://teachablemachine.withgoogle.com/models/_1TtmuVG/";
 
 let model, webcam, labelContainer, maxPredictions, canvas;
 // document.getElementsByTagName('a-scene')[0].addEventListener("DOMContentLoaded", init, false);
-setTimeout(init, 5000);
+setTimeout(init, 10000);
 // init();
 // Load the image model and setup the webcam
 async function init() {
@@ -94,7 +94,7 @@ async function predict() {
             // console.clear();
             console.log("Class 1: Green!");
             var theText = document.getElementById("box");
-            theText.setAttribute('color', '#7DC242');
+            theText.setAttribute('material', 'shader:  gradientshader;  topColor:  #2eff5b;  bottomColor:  #bbff2c');
             // theText.setAttribute("value", "What the fuck is up kyle");
             // console.log(theText);
         }
@@ -102,7 +102,7 @@ async function predict() {
             // console.clear();
             console.log("Class 2: Blue!");
             var theText = document.getElementById("box");
-            theText.setAttribute('color', '#5E87C5');
+            theText.setAttribute('material', 'shader:  gradientshader;  topColor:  #2626ff;  bottomColor:  #3dfff7');
             // theText.setAttribute("value", "What the fuck is up kyle");
             // console.log(theText);
         }
@@ -110,7 +110,7 @@ async function predict() {
             // console.clear();
             console.log("Class 3: Pink!");
             var theText = document.getElementById("box");
-            theText.setAttribute('color', '#EE2B67');
+            theText.setAttribute('material', 'shader:  gradientshader;  topColor:  #9600ff;  bottomColor:  #ff46b8');
             // theText.setAttribute("value", "What the fuck is up kyle");
             // console.log(theText);
         }
