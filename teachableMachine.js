@@ -14,7 +14,7 @@ const URL = "https://teachablemachine.withgoogle.com/models/_1TtmuVG/";
 
 let model, webcam, labelContainer, maxPredictions, canvas;
 // document.getElementsByTagName('a-scene')[0].addEventListener("DOMContentLoaded", init, false);
-setTimeout(init, 7000);
+setTimeout(init, 5000);
 // init();
 // Load the image model and setup the webcam
 async function init() {
@@ -46,7 +46,8 @@ async function init() {
     // });
     // Webcam.attach('label-container');
     // console.log(vidFeed);
-    canvas = document.getElementsByClassName('a-canvas')[0];
+    // canvas = document.getElementsByClassName('a-canvas')[0];
+    canvas = document.getElementsByTagName('video')[0];
     window.requestAnimationFrame(loop);
 
     // append elements to the DOM
@@ -62,7 +63,8 @@ async function init() {
 }
 
 async function loop() {
-    canvas = document.getElementsByClassName('a-canvas')[0];
+    
+    canvas = document.getElementsByTagName('video')[0];
     await predict();
 }
 
@@ -88,7 +90,7 @@ async function predict() {
             prediction[i].className + ": " + prediction[i].probability.toFixed(2);
         labelContainer.childNodes[i].innerHTML = classPrediction;
         // if (prediction[1].probability.toFixed(2);)
-        if(prediction[0].probability.toFixed(2)>.3){
+        if(prediction[0].probability.toFixed(2)>.6){
             // console.clear();
             console.log("Class 1: Green!");
             var theText = document.getElementById("box");
@@ -96,7 +98,7 @@ async function predict() {
             // theText.setAttribute("value", "What the fuck is up kyle");
             // console.log(theText);
         }
-        if(prediction[1].probability.toFixed(2)>.3){
+        if(prediction[1].probability.toFixed(2)>.6){
             // console.clear();
             console.log("Class 2: Blue!");
             var theText = document.getElementById("box");
@@ -104,7 +106,7 @@ async function predict() {
             // theText.setAttribute("value", "What the fuck is up kyle");
             // console.log(theText);
         }
-        if(prediction[2].probability.toFixed(2)>.3){
+        if(prediction[2].probability.toFixed(2)>.6){
             // console.clear();
             console.log("Class 3: Pink!");
             var theText = document.getElementById("box");
