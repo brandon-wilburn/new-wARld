@@ -16,7 +16,7 @@
             <button type="button" onclick="init()">Start</button>
             <div id="webcam-container"></div> -->
                 <!-- <button id="ot">ENTER THE CHAMELEON</button> -->
-                <a-scene embedded arjs>
+                <a-scene embedded arjs="debugUIEnabled: false">
                         <a-assets>
                             <a-asset-item id="creature-obj" src="obj_mcreature_free.OBJ"></a-asset-item>
                             <!-- <a-asset-item id="crate-mtl" src="crate.mtl"></a-asset-item> -->
@@ -28,6 +28,7 @@
                         
                     </a-marker>
                     <a-entity id="camera" camera></a-entity>
+                    <a-scene embedded arjs=“sourceType: webcam; debugUIEnabled: false”></a-scene>
                 </a-scene>
 
         <div id="label-container">
